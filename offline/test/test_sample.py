@@ -1,4 +1,4 @@
-from conan.conans.test.utils.tools import TestClient
+from conans.test.utils.tools import TestClient
 
 def func(x):
     return x + 1
