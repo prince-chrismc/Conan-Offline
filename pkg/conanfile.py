@@ -1,5 +1,6 @@
-from conans import ConanFile
+from conans import python_requires
 
-class Pkg(ConanFile):
-    python_requires = "pyreq/0.1@user/channel"
-    python_requires_extend = "pyreq.MyBase"
+p = python_requires("pyreq/0.1@user/channel")
+class Pkg(p.PyReq):
+    def source(self):
+        self.output.info("My cool source!")

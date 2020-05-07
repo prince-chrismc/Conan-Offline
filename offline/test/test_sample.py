@@ -4,8 +4,6 @@ def func(x):
     return x + 1
 
 def test_requires():
-
-
     client = TestClient()
     conanfile = """from conans import ConanFile
 class MyConanfileBase(ConanFile):
