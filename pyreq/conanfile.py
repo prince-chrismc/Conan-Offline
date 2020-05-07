@@ -1,6 +1,9 @@
 from conans import ConanFile
 
-class MyBase(object):
+class PyReq(ConanFile):
+    name = "pyreq"
+    version = "0.1"
+
     def source(self):
         self.output.info("My cool source!")
     def build(self):
@@ -9,7 +12,3 @@ class MyBase(object):
         self.output.info("My cool package!")
     def package_info(self):
         self.output.info("My cool package_info!")
-
-class PyReq(ConanFile):
-    name = "pyreq"
-    version = "0.1"
