@@ -1,2 +1,3 @@
 # Conan-Offline
-Converts CCI recipes to use a local Artifactory 
+
+Converts CCI recipes to use a local Artifactory
