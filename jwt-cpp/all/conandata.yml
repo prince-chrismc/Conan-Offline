@@ -1,4 +1,0 @@
-patches:
-    "0.3.1":
-        - patch_file: "patches/0002-fix-openssl-change-version.patch"
-          base_path: "source_subfolder"
