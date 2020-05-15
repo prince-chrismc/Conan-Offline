@@ -1,3 +1,4 @@
+termcolor
 conan
 mock
 webtest

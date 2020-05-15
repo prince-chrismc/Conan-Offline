@@ -1,4 +1,4 @@
-from offline.edit_data import edit_conandata
+from offline.edit.conandata import edit_conandata
 from conans.util.files import save_files
 from conans.paths import DATA_YML
 from os.path import join
