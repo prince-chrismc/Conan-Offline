@@ -4,8 +4,7 @@ from conans.paths import DATA_YML
 from os.path import join
 import yaml
 
-def test_edit_conandata():
-   data = """sources:
+data = """sources:
   "1.6.1":
     url: "https://downloads.apache.org/apr/apr-util-1.6.1.tar.gz"
     sha256: "b65e40713da57d004123b6319828be7f1273fbc6490e145874ee1177e112c459"
@@ -19,7 +18,14 @@ patches:
       patch_file: "patches/0003-disable-check-APR_LIBRARIES.patch"
 """
 
+def test_edit_conandata():
    save_files(".", {DATA_YML: data})
-   new_data = edit_conandata(".", "1.6.1", "ftp", "my.server.com:8443")
+   new_data = edit_conandata(".", "1.6.1", "ftp://my.server.com:8443")
    raw = yaml.dump(new_data)
    assert("url: ftp://my.server.com:8443/apr/apr-util-1.6.1.tar.gz" in raw)
+
+def test_edit_conandata_with_sub_path():
+   save_files(".", {DATA_YML: data})
+   new_data = edit_conandata(".", "1.6.1", "ftp://my.server.com:8443/repository/abc")
+   raw = yaml.dump(new_data)
+   assert("url: ftp://my.server.com:8443/repository/abc/apr/apr-util-1.6.1.tar.gz" in raw)
