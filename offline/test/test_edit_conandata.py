@@ -1,4 +1,5 @@
 from offline.edit.conandata import edit_conandata
+from conans.test.utils.test_files import temp_folder
 from conans.util.files import save_files
 from conans.paths import DATA_YML
 from os.path import join
@@ -19,6 +20,7 @@ patches:
 """
 
 def test_edit_conandata():
+   tmp_dir = temp_folder()
    save_files(".", {DATA_YML: data})
    new_data = edit_conandata(".", "1.6.1", "ftp://my.server.com:8443")
    raw = yaml.dump(new_data)
